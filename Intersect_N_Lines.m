@@ -18,20 +18,18 @@ function [Point, AvgDistance, Std] = Intersect_N_Lines (numOfLines, varargin)
   M = [];
   D = [];
   
-  for i = 1:nargin-1 
-    if mod(i,2) ~= 0 && i ~= nargin-2
-      for y = i+2:nargin-1
-        if mod(y,2) ~= 0
-          line1Point1 = varargin{i};
-          line1Point2 = varargin{i+1};
-          
-          line2Point1 = varargin{y};
-          line2Point2 = varargin{y+1};
-      
-          [m, d] = Intersect_Two_Lines(line1Point1,line1Point2,line2Point1,line2Point2);
-          M = [M;m];
-          D = [D;d];
-        end
+  for i = 1:2:numOfLines*2
+    if i ~= numOfLines*2 - 1
+      for y = i+2:2:numOfLines*2
+        line1Point1 = varargin{i};
+        line1Point2 = varargin{i+1};
+        
+        line2Point1 = varargin{y};
+        line2Point2 = varargin{y+1};
+    
+        [m, d] = Intersect_Two_Lines(line1Point1,line1Point2,line2Point1,line2Point2);
+        M = [M;m];
+        D = [D;d];   
       end   
     end
   end
@@ -50,11 +48,11 @@ function [M, D, Std, AvgDistance] = Compute_Errors(m, d)
   Std = std(d);
   outliers = abs(AvgDistance - d) > 2*Std;
   
-  while sum(outliers) ~= 0
+  while sum(outliers)
     for j = size(outliers,1):-1:1
       if outliers(j)
         d(j) = [];
-        m(j) = [];
+        m(j,:) = [];
       end
     end
 
