@@ -17,7 +17,6 @@ function [Point, AvgDistance, Std] = Intersect_N_Lines (numOfLines, varargin)
   
   M = [];
   D = [];
-  outliers = [];
   
   for i = 1:nargin-1 
     if mod(i,2) ~= 0 && i ~= nargin-2
@@ -37,33 +36,33 @@ function [Point, AvgDistance, Std] = Intersect_N_Lines (numOfLines, varargin)
     end
   end
   
-  [M, D, Std, AvgDistance, outliers] = Compute_Errors(M, D);
+  [M, D, Std, AvgDistance] = Compute_Errors(M, D);
   
-  while size(outliers,1) ~= 0
-    [M, D, Std, AvgDistance, outliers] = Compute_Errors(M, D);
+  if size(M,1) == 1
+    Point = M;
+  else
+    Point = mean(M);
   end
-  
-  Point = mean(M);
 endfunction
 
-function [M, D, Std, AvgDistance, Outliers] = Compute_Errors(m, d)
+function [M, D, Std, AvgDistance] = Compute_Errors(m, d)
   AvgDistance = mean(d);
   Std = std(d);
-  Outliers = [];
+  outliers = abs(AvgDistance - d) > 2*Std;
   
-  for j = size(d,1):-1:1
-    if abs(AvgDistance - d(j)) > 2*Std
-      Outliers = [Outliers;j];
+  while sum(outliers) ~= 0
+    for j = size(outliers,1):-1:1
+      if outliers(j)
+        d(j) = [];
+        m(j) = [];
+      end
     end
+
+    AvgDistance = mean(d);
+    Std = std(d);
+    outliers = abs(AvgDistance - d) > 2*Std
   end
   
-  for k = 1:size(Outliers,1)
-    d(k) = [];
-    m(k) = [];
-  end
-  
-  Std = std(d);
-  AvgDistance = mean(d);
   M = m;
   D = d;
 end
