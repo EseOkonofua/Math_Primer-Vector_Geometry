@@ -1,15 +1,15 @@
 ## Author: Eseoghene Okonofua <EseO@Eseoghenes-MacBook-Pro.local>
 ## Created: 2017-09-23
 
-function [retval] = Sphere_Reconstruction ()
-  [points, offsetPoints] = Sphere_Simulation([0,0,0], 5, 2);
+function [retval] = Sphere_Reconstruction (centre, radius, n, maxOff)
+  [points, offsetPoints] = Sphere_Simulation(centre, radius, n, maxOff);
 endfunction
 
-function [points, offsetPoints] =  Sphere_Simulation(centre, radius, maxOff)
+function [points, offsetPoints] =  Sphere_Simulation(centre, radius, n, maxOff)
   points = [];
   offsetPoints = [];
   
-  for i = 1:10
+  for i = 1:n
      p = GetPointOnSphere(centre, radius, 'north');
      points = [points; p];
      
@@ -24,11 +24,14 @@ function [points, offsetPoints] =  Sphere_Simulation(centre, radius, maxOff)
 end
 
 function coordinates =  GetPointOnSphere(centre, radius, hemisphere)
+  % default
   theta = 2*pi*rand;
-  phi = acos(2*rand - 1); % default
+  phi = acos(2*rand - 1); 
 
   if strcmp(hemisphere, 'north')
     phi = acos(rand);
+  elseif strcmp(hemisphere, 'south')
+    phi = acos(rand - 1);
   end
   
   x = centre(1) + ( radius * sin(phi) * cos(theta) );
