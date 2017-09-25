@@ -18,9 +18,11 @@ function [Point, AvgDistance, Std] = Intersect_N_Lines (numOfLines, varargin)
   M = [];
   D = [];
   
-  for i = 1:2:numOfLines*2
-    if i ~= numOfLines*2 - 1
-      for y = i+2:2:numOfLines*2
+  numOfPoints = numOfLines*2;
+  
+  for i = 1:2:numOfPoints
+    if i ~= numOfPoints - 1
+      for y = i+2:2:numOfPoints
         line1Point1 = varargin{i};
         line1Point2 = varargin{i+1};
         
@@ -32,6 +34,17 @@ function [Point, AvgDistance, Std] = Intersect_N_Lines (numOfLines, varargin)
         D = [D;d];   
       end   
     end
+  end
+  
+  if size(M,1) == 1
+    Point = M;
+  else
+    Point = mean(M);
+  end
+  
+  for j = 1:2:numOfPoints
+    [m, d] = Intersect_Two_Lines(varargin{j},varargin{j+1},Point);
+    D = [D;d];
   end
   
   [M, D, Std, AvgDistance] = Compute_Errors(M, D);
@@ -58,7 +71,7 @@ function [M, D, Std, AvgDistance] = Compute_Errors(m, d)
 
     AvgDistance = mean(d);
     Std = std(d);
-    outliers = abs(AvgDistance - d) > 2*Std
+    outliers = abs(AvgDistance - d) > 2*Std;
   end
   
   M = m;
