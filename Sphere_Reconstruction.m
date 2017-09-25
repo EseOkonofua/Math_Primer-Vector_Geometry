@@ -3,6 +3,13 @@
 
 function [retval] = Sphere_Reconstruction (centre, radius, n, maxOff)
   [points, offsetPoints] = Sphere_Simulation(centre, radius, n, maxOff);
+  
+  for i = 1:n
+    for j = i+1:n
+      midPoint = (offsetPoints(i,:) + offsetPoints(j,:))/2;
+      
+    end
+  end
 endfunction
 
 function [points, offsetPoints] =  Sphere_Simulation(centre, radius, n, maxOff)
@@ -10,10 +17,10 @@ function [points, offsetPoints] =  Sphere_Simulation(centre, radius, n, maxOff)
   offsetPoints = [];
   
   for i = 1:n
-     p = GetPointOnSphere(centre, radius, 'north');
+     p = GetRandomPointOnSphere(centre, radius, 'north');
      points = [points; p];
      
-     offsetP = GetPointOnSphere(p, maxOff, 'all');
+     offsetP = GetRandomPointOnSphere(p, maxOff*rand, 'all');
      offsetPoints = [offsetPoints; offsetP];
      
      scatter3(p(1),p(2),p(3));
@@ -21,22 +28,4 @@ function [points, offsetPoints] =  Sphere_Simulation(centre, radius, n, maxOff)
   end
 
   hold off;
-end
-
-function coordinates =  GetPointOnSphere(centre, radius, hemisphere)
-  % default
-  theta = 2*pi*rand;
-  phi = acos(2*rand - 1); 
-
-  if strcmp(hemisphere, 'north')
-    phi = acos(rand);
-  elseif strcmp(hemisphere, 'south')
-    phi = acos(rand - 1);
-  end
-  
-  x = centre(1) + ( radius * sin(phi) * cos(theta) );
-  y = centre(2) + ( radius * sin(phi) * sin(theta) );
-  z = centre(3) + ( radius * cos(phi) );
-     
-  coordinates = [x,y,z];
 end
