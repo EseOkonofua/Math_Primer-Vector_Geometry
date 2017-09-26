@@ -8,6 +8,7 @@
 ## Input:
   ## [point1x, point1y, point1z] - linePoint1
   ## [point2x, point2y, point2z] - linePoint2
+  ## [elCentrex, elCentrey, elCentrz] - elCentre
   ## [pointx, pointy, pointz] - ellipsoid centre
   ## a,b,c - Principal axes
 ## Output:

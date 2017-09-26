@@ -1,6 +1,14 @@
 ## Author: Eseoghene Okonofua <EseO@Eseoghenes-MacBook-Pro.local>
 ## Created: 2017-09-25
 
+## Line-Reconstruction
+## Input:
+  ## ( [ApointX, ApointY, ApointZ], [BpointX, BpointY, BpointZ], numberOfPoints), offset ]
+## Output:
+  ## [pointX, pointY, pointZ], [vectorX, vectorY, vectorZ], avg distance, std
+  ## * display a graph plot of all the points for visualization
+  ## * display error metrics
+
 %Line_Reconstruction([0,0,0],[2,1,1], 100, 10)
 function [Point, Vector, AvgDistance, Std] = Line_Reconstruction (point1, point2, n, maxOff)
 
