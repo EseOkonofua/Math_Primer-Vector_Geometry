@@ -1,5 +1,5 @@
-## Author: Eseoghene Okonofua <EseO@Eseoghenes-MacBook-Pro.local>
-## Created: 2017-09-25
+% Author: Eseoghene Okonofua <EseO@Eseoghenes-MacBook-Pro.local>
+% Created: 2017-09-25
 
 %Helper function get random point on a sphere surface with given centre and radius
 function coordinates = GetRandomPointOnSphere(centre, radius, hemisphere)
@@ -18,4 +18,4 @@ function coordinates = GetRandomPointOnSphere(centre, radius, hemisphere)
   z = centre(3) + ( radius * cos(phi) );
      
   coordinates = [x,y,z];
-endfunction
+end

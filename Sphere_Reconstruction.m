@@ -1,5 +1,5 @@
-## Author: Eseoghene Okonofua <EseO@Eseoghenes-MacBook-Pro.local>
-## Created: 2017-09-23
+% Author: Eseoghene Okonofua <EseO@Eseoghenes-MacBook-Pro.local>
+% Created: 2017-09-23
 
 function [retval] = Sphere_Reconstruction (centre, radius, n, maxOff)
   [points, offsetPoints] = Sphere_Simulation(centre, radius, n, maxOff);
@@ -10,7 +10,7 @@ function [retval] = Sphere_Reconstruction (centre, radius, n, maxOff)
       
     end
   end
-endfunction
+end
 
 function [points, offsetPoints] =  Sphere_Simulation(centre, radius, n, maxOff)
   points = [];

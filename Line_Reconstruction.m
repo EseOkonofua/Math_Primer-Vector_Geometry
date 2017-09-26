@@ -1,13 +1,13 @@
-## Author: Eseoghene Okonofua <EseO@Eseoghenes-MacBook-Pro.local>
-## Created: 2017-09-25
+% Author: Eseoghene Okonofua <EseO@Eseoghenes-MacBook-Pro.local>
+% Created: 2017-09-25
 
-## Line-Reconstruction
-## Input:
-  ## ( [ApointX, ApointY, ApointZ], [BpointX, BpointY, BpointZ], numberOfPoints), offset ]
-## Output:
-  ## [pointX, pointY, pointZ], [vectorX, vectorY, vectorZ], avg distance, std
-  ## * display a graph plot of all the points for visualization
-  ## * display error metrics
+% Line-Reconstruction
+% Input:
+  % ( [ApointX, ApointY, ApointZ], [BpointX, BpointY, BpointZ], numberOfPoints), offset ]
+% Output:
+  % [pointX, pointY, pointZ], [vectorX, vectorY, vectorZ], avg distance, std
+  % * display a graph plot of all the points for visualization
+  % * display error metrics
 
 %Line_Reconstruction([0,0,0],[2,1,1], 100, 10)
 function [Point, Vector, AvgDistance, Std] = Line_Reconstruction (point1, point2, n, maxOff)
@@ -48,14 +48,14 @@ function [Point, Vector, AvgDistance, Std] = Line_Reconstruction (point1, point2
   hold on
   for i = 1:n
     if i <= size(offsetPoints, 1)
-      scatter3(offsetPoints(i, 1), offsetPoints(i, 2), offsetPoints(i, 3), 'filled');
+      scatter3(offsetPoints(i, 1), offsetPoints(i, 2), offsetPoints(i, 3), 10, 'blue', 'filled');
     end
     scatter3(reconPoints(i, 1), reconPoints(i, 2), reconPoints(i, 3), 5, 'red', 'filled');
     %scatter3(points(i, 1), points(i, 2), points(i, 3), 5, 'yellow', 'filled');
   end
   hold off
   
-endfunction
+end
 
 %This function will find the line of best fit when given points in 3d
 % Returns start point (Point). Direction vector(Vector), 

@@ -1,12 +1,12 @@
-## Author: Eseoghene Okonofua
-## Created: 2017-09-11
+% Author: Eseoghene Okonofua
+% Created: 2017-09-11
 
-## Distance-of-Line-and-Point
-## Input:
-  ## ([linePoint1x, linePoint1y, linePoint1z], [linePoint2x, linePoint2y, linePoint2z],
-  ## [PointX, PointY, PointZ])
-## Output: 
-  ## Distance
+% Distance-of-Line-and-Point
+% Input:
+  % ([linePoint1x, linePoint1y, linePoint1z], [linePoint2x, linePoint2y, linePoint2z],
+  % [PointX, PointY, PointZ])
+% Output: 
+  % Distance
 
 function Distance = Distance_of_Line_and_Point (linePoint1, linePoint2, point)
 
@@ -17,13 +17,13 @@ function Distance = Distance_of_Line_and_Point (linePoint1, linePoint2, point)
   %Our starting line
   line = linePoint2 - linePoint1;
   
-  %v is the normalized direction vector
+  %v is the normalized line vector
   v = line/norm(line);
   
   %c is the line from the target point to the start point.
   c = point - linePoint1;
   
-  %lena is the magnitude of the vector a which is then used to find the actual a vector.
+  %lena is the magnitude of the line a which is then used to find the actual a vector.
   lena = dot(v,c);
   a = v * lena;
   
@@ -32,4 +32,4 @@ function Distance = Distance_of_Line_and_Point (linePoint1, linePoint2, point)
   
   %the norm of d is the distance.
   Distance = norm(d);
-endfunction
+end
