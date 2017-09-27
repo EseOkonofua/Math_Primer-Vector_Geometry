@@ -3,18 +3,26 @@
 
 % Intersect-N-Lines
 % Input:
-% (numOfLines,
+% (
 % [line1point1x, line1point1y, line1point1z], [line1point2x, line1point2y, line1point2z],
 % [line2point1x, line2point1y, line2point1z], [line2point2x, line2point2y, line2point2z],
 % [line3point1x, .............)
 % Ouput:
 % Intersection point: [x,y,z], avg distance, std
 
-function [Point, AvgDistance, Std] = Intersect_N_Lines (numOfLines, varargin)
-    if rem(nargin, 2) == 0
-        error('Arguments are not valid, first argument is #ofLines & the rest are pairs of line coordinates.')
+function [Point, AvgDistance, Std] = Intersect_N_Lines (varargin)
+    %make sure there are pairs of lines as arguments
+    if rem(nargin, 2) ~= 0
+        error('Arguments are not valid, The inputs must be pairs of line coordinates.')
+    end
+    
+    %validate inputs
+    for i = 1:nargin
+       Verify_Numerical_Inputs(varargin{i});
+       Verify_3d_Inputs(varargin{i});
     end
 
+    %reshape inputs to be used in intersection function
     vectorMatrix = reshape(cell2mat(varargin), 3, []);
 
     [Point, AvgDistance, D, Std] = findIntersect(vectorMatrix);
@@ -31,7 +39,7 @@ function [Point, AvgDistance, Std] = Intersect_N_Lines (numOfLines, varargin)
         
         %recompute intersect with removed lines
         [Point, AvgDistance, D, Std] = findIntersect(vectorMatrix);
-        
+        %recompute outlier equation
         outliers = abs(AvgDistance - D) > 2*Std;
     end
 end
@@ -42,6 +50,7 @@ function [Point, AvgDistance, D, Std] =  findIntersect(line_matrix)
     M = [];
     D = [];
     
+    %Compute the intersects of every pair of lines
     for i = 1:2:numOfPoints
         if i ~= numOfPoints - 1
           for y = i+2:2:numOfPoints
@@ -57,12 +66,15 @@ function [Point, AvgDistance, D, Std] =  findIntersect(line_matrix)
         end
     end
     
+    
+    % if there are only 2 lines the intersect is at M
     if size(M,1) == 1
         Point = M;
     else
-        Point = mean(M);
+        Point = mean(M); %else take the average of all the intersects
     end
     
+    %compute the distance of each line to the new average intersect
     for i = 1:2:numOfPoints
         linePoint1 = line_matrix(:, i)';
         linePoint2 = line_matrix(:, i+1)';
@@ -71,6 +83,7 @@ function [Point, AvgDistance, D, Std] =  findIntersect(line_matrix)
         D = [D; d];
     end
     
+    %find the Std and Average distance to each line
     Std = std(D);
     AvgDistance = mean(D);
 end

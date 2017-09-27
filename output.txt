@@ -19,7 +19,7 @@ Distance:
 
 
 ### Intersect-Two-Lines ###
---- Test 1:
+--- Test 1 (Intersecting lines):
 Input:
 	line1Point1: [5,5,4], line1Point2: [10,10,6], line2Point1: [5,5,5], line2Point2: [10,10,3]
 Expected:
@@ -31,7 +31,7 @@ Distance:
 Standard Deviation:
 	0.0000
 
---- Test 2:
+--- Test 2 (Non intersecting lines):
 Input:
 	line1Point1: [2,1,4], line1Point2: [1,2,4], line2Point1: [-1,0,2], line2Point2: [4,1,4]
 Expected:
@@ -42,4 +42,153 @@ Intersect:
 Distance:
 	0.3015
 Standard Deviation:
-	0.000
+	0.0000
+
+### Intersect-N-Lines ###
+--- Test 1 (2 lines that intersect):
+Input:
+	([5,5,4],[10,10,6],[5,5,5],[10,10,3])
+Expected:
+	 Should Interesect at [25/4, 25/4, 9/2]
+Intersect:
+	[6.2500,6.2500,4.5000]
+Distance:
+	0.0000
+Standard Deviation:
+	0.0000
+
+--- Test 2 (3 lines that do not intersect):
+Input:
+	([-6.13,7.57,-2.66],[-1.89,1.64,0],[4.94,-1.36,-3.45],[1.71,-0.39,0],[0.49,1.18,4.38],[2.18,-0.35,0])
+Expected:
+	Should not Interesect & Midpoint at [1.1328,-0.4704,0.5647]
+	Average Distance between lines: 0.8365
+Intersect:
+	[1.1328,-0.4704,0.5647]
+Distance:
+	0.8365
+Standard Deviation:
+	0.5776
+
+### Intersect-Line-and-Ellipsoid ###
+--- Test 1 (2 Points of intersection):
+Input:
+	(linePoint1:[5,6,0],Linepoint2:[15,16,0],elCentre:[0,0,0],a:2,b:2,c:2)
+Expected:
+	 Should Interesect at 2 points: [-1.8229,-0.8229,0] & [0.8229,1.8229,0]
+Intersections:
+	2
+Point1:
+	[-1.8229,-0.8229,0.0000]
+Point2:
+	[0.8229,1.8229,0.0000]
+
+
+--- Test 2 (1 Points of intersection | Tangent):
+Input:
+	(linePoint1:[0,-2,0],Linepoint2:[2,-2,0],elCentre:[0,0,0],a:2,b:2,c:2)
+Expected:
+	 Should Interesect at 1 point: [0,-2,0].
+Intersections:
+	1
+Point1:
+	[0.0000,-2.0000,0.0000]
+Point2:
+	1.0000
+
+
+--- Test 3 (No intersections):
+Input:
+	(linePoint1:[5,10,0],Linepoint2:[5,20,0],elCentre:[0,0,0],a:2,b:2,c:2)
+Expected:
+	 Should not intersect.
+Intersections:
+	0
+Point1:
+	1.0000
+Point2:
+	1.0000
+
+### Orthonormal-Coordinate-System ###
+--- Test 1:
+Input:
+	(pA:[0,0,0],pB:[1,0,0],pC:[0,1,0])
+Expected:
+	x:[1,0,0], y:[0,1,0], z:[0,0,1]
+x:
+	[1.0000,0.0000,0.0000]
+y:
+	[0.0000,1.0000,0.0000]
+z:
+	[0.0000,0.0000,1.0000]
+
+
+--- Test 2:
+Input:
+	(pA:[2,0,1],pB:[1,0,0],pC:[0,0,1])
+Expected:
+	x:[-0.7071,0,-0.7071], y:[-0.7071,0,0.7071], z:[0,1,0]
+x:
+	[-0.7071,0.0000,-0.7071]
+y:
+	[-0.7071,0.0000,0.7071]
+z:
+	[0.0000,1.0000,0.0000]
+
+### Rigid-Body-Transform ###
+--- Test 1(Translate Only - FLE = 0:)
+Input:
+	Pose 1 Markers:
+	[3.6343 -4.6041 8.9672 [-1.4784 -0.0107 -6.2666 [-3.5154 4.9281 -3.1908 
+Pose 2 Markers:
+	[10.8646 -42.5648 30.6078 [5.7519 -37.9714 15.3740 [3.7149 -33.0326 18.4498 
+Expected:
+
+	1.0000 0.0000 0.0000 7.2303
+	0.0000 1.0000 0.0000 -37.9607
+	0.0000 0.0000 1.0000 21.6406
+	0.0000 0.0000 0.0000 1.0000
+Output:
+
+	1.0000 -0.0000 -0.0000 7.2303
+	0.0000 1.0000 -0.0000 -37.9607
+	0.0000 0.0000 1.0000 21.6406
+	0.0000 0.0000 0.0000 1.0000
+
+--- Test 2(Rotate Only - FLE = 0:)
+Input:
+	Pose 1 Markers:
+	[2.6380 -1.5309 -9.4886 [0.5793 -1.3824 0.6369 [-6.6103 2.1177 -3.9023 
+Pose 2 Markers:
+	[9.1010 -0.8748 -3.9678 [-0.3979 1.4491 -0.6276 [4.2738 -2.5041 6.2349 
+Expected:
+
+	-0.1469 -0.2182 -0.9648 0.0000
+	-0.0679 -0.9708 0.2299 0.0000
+	-0.9868 0.0993 0.1278 0.0000
+	0.0000 0.0000 0.0000 1.0000
+Output:
+
+	0.5031 0.8525 0.1416 2.8362
+	0.8305 -0.5223 0.1937 4.2994
+	0.2391 0.0202 -0.9708 4.7423
+	0.0000 0.0000 0.0000 1.0000
+
+--- Test 3(Translate & Rotate - FLE = 0:)
+Input:
+	Pose 1 Markers:
+	[9.4875 -0.1336 -8.2276 [-7.0301 4.2877 2.3504 [4.6502 6.0748 -5.0723 
+Pose 2 Markers:
+	[8.8478 -57.1960 -36.0517 [10.7772 -46.2271 -19.3116 [4.8752 -52.2378 -30.4362 
+Expected:
+
+	-0.1442 -0.9275 0.3448 12.9295
+	0.0291 0.3444 0.9384 -49.7049
+	-0.9891 0.1454 -0.0227 -26.8350
+	0.0000 0.0000 0.0000 1.0000
+Output:
+
+	0.4791 0.4588 -0.7483 -0.8620
+	0.8261 0.0522 0.5610 -15.4192
+	0.2965 -0.8870 -0.3540 62.2194
+	0.0000 0.0000 0.0000 1.0000

@@ -9,7 +9,6 @@
   % * display a graph plot of all the points for visualization
   % * display error metrics
 
-%Line_Reconstruction([0,0,0],[2,1,1], 100, 10)
 function [Point, Vector, AvgDistance, Std] = Line_Reconstruction (point1, point2, n, maxOff)
 
   %Handle errors
@@ -21,7 +20,7 @@ function [Point, Vector, AvgDistance, Std] = Line_Reconstruction (point1, point2
   v = line/norm(line);
   
   % Generate lines and offset them
-  [points, offsetPoints] = Line_Simulation(point1, v, n, maxOff);
+  [~, offsetPoints] = Line_Simulation(point1, v, n, maxOff);
   
   %Find the line of best fit with generated points
   [Point, Vector, AvgDistance, Std, D] = findLineOfBestFit(offsetPoints);
@@ -42,19 +41,31 @@ function [Point, Vector, AvgDistance, Std] = Line_Reconstruction (point1, point2
     errors = abs(AvgDistance - D) > 2*Std;
   end
   
-  reconPoints = GetRandomPointsOnLine(Point, Vector, n, 3);
+  reconPointA = Point + 2*n*Vector;
+  reconPointB = Point - 2*n*Vector;
+  reconLine = [reconPointA; reconPointB];
+  
+  originPointA = point1 + 2*n*v;
+  originPointB = point1 - 2*n*v;
+  originLine = [originPointA; originPointB];
   
   figure
+  title(strcat('Line Reconstruction - MaxOffset: ', int2str(maxOff)));
   hold on
-  for i = 1:n
-    if i <= size(offsetPoints, 1)
-      scatter3(offsetPoints(i, 1), offsetPoints(i, 2), offsetPoints(i, 3), 10, 'blue', 'filled');
-    end
-    scatter3(reconPoints(i, 1), reconPoints(i, 2), reconPoints(i, 3), 5, 'red', 'filled');
-    %scatter3(points(i, 1), points(i, 2), points(i, 3), 5, 'yellow', 'filled');
+  reconPlotLine = plot3(reconLine(:,1), reconLine(:,2), reconLine(:,3));
+  reconPlotLine.Color = 'red';
+  reconPlotLine.LineWidth = 1;
+  
+  originPlotLine = plot3(originLine(:,1), originLine(:,2), originLine(:,3));
+  originPlotLine.Color = 'blue';
+  originPlotLine.LineWidth = 1;
+  originPlotLine.LineStyle = '-.';
+
+  for i = 1:size(offsetPoints, 1)
+    scatter3(offsetPoints(i, 1), offsetPoints(i, 2), offsetPoints(i, 3), 10, 'black', 'filled');
   end
   hold off
-  
+  legend('Reconstructed Line', 'Original Line', 'Offset Points');
 end
 
 %This function will find the line of best fit when given points in 3d
