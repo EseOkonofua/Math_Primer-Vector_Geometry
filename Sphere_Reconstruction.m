@@ -2,6 +2,16 @@
 % Created: 2017-09-23
 
 function [Centre, Radius, AvgDistance, Std] = Sphere_Reconstruction (centre, radius, n, maxOff)
+
+    %Verify and validate inputs
+    Verify_Numerical_Inputs(centre, radius, n, maxOff);
+    Verify_3d_Inputs(centre);
+    
+    %Making sure these values are positive
+    n = abs(n);
+    maxOff = abs(maxOff);
+    radius = abs(radius);
+    
     [points, offsetPoints] = Sphere_Simulation(centre, radius, n, maxOff); %generate points and offset them
 
     %fit the sphere based on the offset points
@@ -21,21 +31,27 @@ function [Centre, Radius, AvgDistance, Std] = Sphere_Reconstruction (centre, rad
         errors = abs(AvgDistance - D) > 2*Std;
     end
     
-    %Graph the original sphere vs the Reconstructed sphere
-    figure
-    title(strcat('Sphere Reconstruction - MaxOffset:', int2str(maxOff)));
-    hold on
-    
-    for i = 1:250
-        p = GetRandomPointOnSphere(centre, radius, 'all');
+    %This portion will Graph the original sphere vs the Reconstructed sphere
+    if maxOff == 0 || maxOff == 10   
+        figure
+        title(strcat('Sphere Reconstruction - MaxOffset:', int2str(maxOff)));
+        hold on
 
-        rP = GetRandomPointOnSphere(Centre, Radius, 'all');
+        for i = 1:100
+            p = GetRandomPointOnSphere(centre, radius, 'all');
 
-        scatter3(p(1), p(2), p(3), 10, 'blue', 'filled');
-        scatter3(rP(1), rP(2), rP(3), 10, 'red', 'filled');
+            rP = GetRandomPointOnSphere(Centre, Radius, 'all');        
+         
+            scatter3(p(1), p(2), p(3), 10, 'blue', 'filled');
+            scatter3(rP(1), rP(2), rP(3), 10, 'red', 'filled');
+            if i <= size(offsetPoints, 1)
+                offsetP = offsetPoints(i,:);
+                scatter3(offsetP(1), offsetP(2), offsetP(3), 20, 'black', 'filled');
+            end
+        end
+        legend('True Sphere', 'Reconstructed Sphere', 'Offset Points');
+        hold off
     end
-    legend('True Sphere', 'Reconstructed Sphere');
-    hold off
 end
 
 function [points, offsetPoints] =  Sphere_Simulation(centre, radius, n, maxOff)

@@ -12,18 +12,21 @@
   %[base2x, base2y, base2z]
   %[base3x, base3y, base3z]
   %[ctrx, ctry, ctrz] 
-
-% Orthonormal_Coordinate_System([0,0,0], [5,-3,6], [-3, -2, 5])
-% Orthonormal_Coordinate_System([8,-2,3], [3,4,7], [-3, 1, 2])
-
 function [x, y, z, Centre] = Orthonormal_Coordinate_System (pA, pB, pC)
-  Centre = mean([pA; pB; pC]);
-  
-  x = pB - pA;
-  z = cross(x, pC - pA);
-  y = cross(z, x);
-  
-  x = x/norm(x);
-  z = z/norm(z);
-  y = y/norm(y);
+    %validate inputs
+    Verify_Numerical_Inputs(pA, pB, pC);
+    Verify_3d_Inputs(pA, pB, pC);
+    
+    %Get the average point. Weighted middle.
+    Centre = mean([pA; pB; pC]);
+
+    %find base vectors.
+    x = pB - pA;
+    z = cross(x, pC - pA);
+    y = cross(z, x);
+
+    %Normalize base vectors.
+    x = x/norm(x);
+    z = z/norm(z);
+    y = y/norm(y);
 end

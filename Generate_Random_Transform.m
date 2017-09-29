@@ -1,4 +1,4 @@
-function [Markers, Translate, Rotate] = Generate_Random_Transform()
+function [Marker, Translate, Rotate] = Generate_Random_Transform()
 % This function will generate a random transformation matrix
     x = 2*pi*rand - pi;
     y = pi*rand - pi*0.5;
@@ -31,6 +31,6 @@ function [Markers, Translate, Rotate] = Generate_Random_Transform()
     Translate = eye(4);
     Translate(1:3, 4) = 100*rand(3,1) - 50;
     
-    Markers = 20*rand(3,1) - 10;
+    Marker = 20*rand(3,1) - 10;
 end
 

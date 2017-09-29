@@ -15,6 +15,10 @@ function [Point, Vector, AvgDistance, Std] = Line_Reconstruction (point1, point2
   Verify_Numerical_Inputs(point1, point2, n, maxOff);
   Verify_3d_Inputs(point1, point2);
   
+  %make sure these values are positive.
+  n = abs(n);
+  maxOff = abs(maxOff);
+  
   %Find direction vector
   line = point2 - point1;
   v = line/norm(line);
@@ -23,7 +27,7 @@ function [Point, Vector, AvgDistance, Std] = Line_Reconstruction (point1, point2
   [~, offsetPoints] = Line_Simulation(point1, v, n, maxOff);
   
   %Find the line of best fit with generated points
-  [Point, Vector, AvgDistance, Std, D] = findLineOfBestFit(offsetPoints);
+  [Point, Vector, AvgDistance, Std, D] = Line_Fit(offsetPoints);
   
   %calculate errors and remove outlier points
   errors = abs(AvgDistance - D) > 2*Std;
@@ -35,60 +39,39 @@ function [Point, Vector, AvgDistance, Std] = Line_Reconstruction (point1, point2
     end
     
     %recalculate line of best fit with deleted outliers
-    [Point, Vector, AvgDistance, Std, D] = findLineOfBestFit(offsetPoints);
+    [Point, Vector, AvgDistance, Std, D] = Line_Fit(offsetPoints);
     
     %find if there are anymore errors
     errors = abs(AvgDistance - D) > 2*Std;
   end
   
-  reconPointA = Point + 2*n*Vector;
-  reconPointB = Point - 2*n*Vector;
-  reconLine = [reconPointA; reconPointB];
-  
-  originPointA = point1 + 2*n*v;
-  originPointB = point1 - 2*n*v;
-  originLine = [originPointA; originPointB];
-  
-  figure
-  title(strcat('Line Reconstruction - MaxOffset: ', int2str(maxOff)));
-  hold on
-  reconPlotLine = plot3(reconLine(:,1), reconLine(:,2), reconLine(:,3));
-  reconPlotLine.Color = 'red';
-  reconPlotLine.LineWidth = 1;
-  
-  originPlotLine = plot3(originLine(:,1), originLine(:,2), originLine(:,3));
-  originPlotLine.Color = 'blue';
-  originPlotLine.LineWidth = 1;
-  originPlotLine.LineStyle = '-.';
+  if maxOff == 0 || maxOff == 10
+      reconPointA = Point + 2*n*Vector;
+      reconPointB = Point - 2*n*Vector;
+      reconLine = [reconPointA; reconPointB];
 
-  for i = 1:size(offsetPoints, 1)
-    scatter3(offsetPoints(i, 1), offsetPoints(i, 2), offsetPoints(i, 3), 10, 'black', 'filled');
-  end
-  hold off
-  legend('Reconstructed Line', 'Original Line', 'Offset Points');
-end
+      originPointA = point1 + 2*n*v;
+      originPointB = point1 - 2*n*v;
+      originLine = [originPointA; originPointB];
 
-%This function will find the line of best fit when given points in 3d
-% Returns start point (Point). Direction vector(Vector), 
-% Average distance of Points to generated line(AvgDistance), Standard Deviation of distances (Std)
-% and matrix of all distances (D)
-function [Point, Vector, AvgDistance, Std, D] =  findLineOfBestFit(points)
-  Point = mean(points);
-  
-  subtracted = points - Point;
-  
-  [~, ~, V] = svd(subtracted);
-  
-  Vector = V(:, 1)';
-  
-  D = [];
-  
-  for i = 1:size(points, 1)
-    D = [D; Distance_of_Line_and_Point(Point + Vector, Point + rand*Vector, points(i, :))];
+      figure
+      title(strcat('Line Reconstruction - MaxOffset: ', int2str(maxOff)));
+      hold on
+      reconPlotLine = plot3(reconLine(:,1), reconLine(:,2), reconLine(:,3));
+      reconPlotLine.Color = 'red';
+      reconPlotLine.LineWidth = 1;
+
+      originPlotLine = plot3(originLine(:,1), originLine(:,2), originLine(:,3));
+      originPlotLine.Color = 'blue';
+      originPlotLine.LineWidth = 1;
+      originPlotLine.LineStyle = '-.';
+
+      for i = 1:size(offsetPoints, 1)
+        scatter3(offsetPoints(i, 1), offsetPoints(i, 2), offsetPoints(i, 3), 10, 'black', 'filled');
+      end
+      hold off
+      legend('Reconstructed Line', 'Original Line', 'Offset Points');
   end
-  
-  AvgDistance = mean(D);
-  Std = std(D);
 end
 
 %This is the line simulation function that will generate lines and them offset them at a maxOff distance.

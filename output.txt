@@ -109,6 +109,240 @@ Point1:
 Point2:
 	1.0000
 
+
+### Sphere-Reconstruction ###
+Expected:
+	Increasing Standard Deviation and Average Distance with increasing MaxOffset.
+	Also expect to see more skewed reconstructed of sphere on plot.
+Max Offset: 0
+	Std: 0.0000, AvgDistance: 100.0000
+
+Max Offset: 1
+	Std: 0.1600, AvgDistance: 100.0434
+
+Max Offset: 2
+	Std: 0.3101, AvgDistance: 99.7425
+
+Max Offset: 3
+	Std: 0.5275, AvgDistance: 99.8809
+
+Max Offset: 4
+	Std: 0.4606, AvgDistance: 99.5501
+
+Max Offset: 5
+	Std: 1.1983, AvgDistance: 99.6022
+
+Max Offset: 6
+	Std: 1.1275, AvgDistance: 100.1194
+
+Max Offset: 7
+	Std: 1.7330, AvgDistance: 101.4210
+
+Max Offset: 8
+	Std: 1.9877, AvgDistance: 101.1929
+
+Max Offset: 9
+	Std: 0.8085, AvgDistance: 99.9325
+
+Max Offset: 10
+	Std: 1.6879, AvgDistance: 101.4464
+
+Max Offset: 11
+	Std: 1.3431, AvgDistance: 100.9912
+
+Max Offset: 12
+	Std: 1.6775, AvgDistance: 100.6557
+
+Max Offset: 13
+	Std: 1.9629, AvgDistance: 100.0299
+
+Max Offset: 14
+	Std: 3.2803, AvgDistance: 100.5663
+
+Max Offset: 15
+	Std: 3.0921, AvgDistance: 98.5244
+
+Max Offset: 16
+	Std: 3.8002, AvgDistance: 100.0714
+
+Max Offset: 17
+	Std: 2.8125, AvgDistance: 99.9558
+
+Max Offset: 18
+	Std: 1.4807, AvgDistance: 99.1975
+
+Max Offset: 19
+	Std: 2.4595, AvgDistance: 99.6729
+
+Max Offset: 20
+	Std: 2.7232, AvgDistance: 97.6106
+
+Max Offset: 21
+	Std: 3.2249, AvgDistance: 101.4573
+
+Max Offset: 22
+	Std: 3.0595, AvgDistance: 102.0117
+
+Max Offset: 23
+	Std: 5.6259, AvgDistance: 97.2592
+
+Max Offset: 24
+	Std: 5.3549, AvgDistance: 96.3812
+
+Max Offset: 25
+	Std: 2.8705, AvgDistance: 98.7447
+
+Max Offset: 26
+	Std: 6.5326, AvgDistance: 98.4006
+
+Max Offset: 27
+	Std: 3.8162, AvgDistance: 98.1064
+
+Max Offset: 28
+	Std: 3.8516, AvgDistance: 97.7235
+
+Max Offset: 29
+	Std: 3.4956, AvgDistance: 100.5242
+
+Max Offset: 30
+	Std: 6.9775, AvgDistance: 99.1096
+
+Max Offset: 31
+	Std: 3.5269, AvgDistance: 101.1691
+
+Max Offset: 32
+	Std: 3.6967, AvgDistance: 98.9981
+
+Max Offset: 33
+	Std: 6.0916, AvgDistance: 101.8336
+
+Max Offset: 34
+	Std: 4.7546, AvgDistance: 100.7135
+
+Max Offset: 35
+	Std: 5.4660, AvgDistance: 98.8896
+
+Max Offset: 36
+	Std: 7.6410, AvgDistance: 97.8669
+
+
+
+### Line-Reconstruction ###
+Expected:
+	Increasing Standard Deviation and Average Distance with increasing MaxOffset.
+	Also expect to see more skewed reconstructed line on plot.
+Max Offset: 0
+	Std: 0.0000, AvgDistance: 0.0000
+
+Max Offset: 1
+	Std: 0.2229, AvgDistance: 0.4021
+
+Max Offset: 2
+	Std: 0.4548, AvgDistance: 0.8366
+
+Max Offset: 3
+	Std: 0.8195, AvgDistance: 1.2179
+
+Max Offset: 4
+	Std: 1.0207, AvgDistance: 1.5642
+
+Max Offset: 5
+	Std: 0.6664, AvgDistance: 1.3644
+
+Max Offset: 6
+	Std: 1.1916, AvgDistance: 2.0249
+
+Max Offset: 7
+	Std: 1.6482, AvgDistance: 2.6381
+
+Max Offset: 8
+	Std: 1.5026, AvgDistance: 2.6440
+
+Max Offset: 9
+	Std: 2.4760, AvgDistance: 3.5475
+
+Max Offset: 10
+	Std: 1.3185, AvgDistance: 2.7270
+
+Max Offset: 11
+	Std: 1.9626, AvgDistance: 3.6580
+
+Max Offset: 12
+	Std: 2.1970, AvgDistance: 3.9991
+
+Max Offset: 13
+	Std: 1.8658, AvgDistance: 3.1163
+
+Max Offset: 14
+	Std: 2.7140, AvgDistance: 5.1307
+
+Max Offset: 15
+	Std: 3.7469, AvgDistance: 5.8056
+
+Max Offset: 16
+	Std: 2.1502, AvgDistance: 3.3764
+
+Max Offset: 17
+	Std: 3.7691, AvgDistance: 6.1994
+
+Max Offset: 18
+	Std: 3.8529, AvgDistance: 7.3097
+
+Max Offset: 19
+	Std: 3.7703, AvgDistance: 6.3460
+
+Max Offset: 20
+	Std: 5.3592, AvgDistance: 7.9869
+
+Max Offset: 21
+	Std: 3.3078, AvgDistance: 5.9451
+
+Max Offset: 22
+	Std: 3.0416, AvgDistance: 4.8984
+
+Max Offset: 23
+	Std: 5.9748, AvgDistance: 9.6219
+
+Max Offset: 24
+	Std: 5.6210, AvgDistance: 9.4570
+
+Max Offset: 25
+	Std: 4.6185, AvgDistance: 8.1280
+
+Max Offset: 26
+	Std: 5.4061, AvgDistance: 9.9750
+
+Max Offset: 27
+	Std: 5.4482, AvgDistance: 8.6930
+
+Max Offset: 28
+	Std: 4.4639, AvgDistance: 7.8505
+
+Max Offset: 29
+	Std: 7.6854, AvgDistance: 12.8699
+
+Max Offset: 30
+	Std: 7.8286, AvgDistance: 12.3881
+
+Max Offset: 31
+	Std: 2.4752, AvgDistance: 4.8895
+
+Max Offset: 32
+	Std: 7.7275, AvgDistance: 12.5803
+
+Max Offset: 33
+	Std: 8.4843, AvgDistance: 13.5634
+
+Max Offset: 34
+	Std: 5.3272, AvgDistance: 8.5084
+
+Max Offset: 35
+	Std: 5.6568, AvgDistance: 10.4084
+
+Max Offset: 36
+	Std: 8.2600, AvgDistance: 13.3274
+
+
 ### Orthonormal-Coordinate-System ###
 --- Test 1:
 Input:
@@ -139,56 +373,56 @@ z:
 --- Test 1(Translate Only - FLE = 0:)
 Input:
 	Pose 1 Markers:
-	[3.6343 -4.6041 8.9672 [-1.4784 -0.0107 -6.2666 [-3.5154 4.9281 -3.1908 
+	[-7.5961 -1.8153 2.9209 [1.2619 -1.0824 5.7400 [-6.7904 5.8472 -5.8750 
 Pose 2 Markers:
-	[10.8646 -42.5648 30.6078 [5.7519 -37.9714 15.3740 [3.7149 -33.0326 18.4498 
+	[22.5339 40.9959 40.7751 [31.3919 41.7288 43.5942 [23.3396 48.6584 31.9791 
 Expected:
 
-	1.0000 0.0000 0.0000 7.2303
-	0.0000 1.0000 0.0000 -37.9607
-	0.0000 0.0000 1.0000 21.6406
+	1.0000 0.0000 0.0000 30.1300
+	0.0000 1.0000 0.0000 42.8112
+	0.0000 0.0000 1.0000 37.8542
 	0.0000 0.0000 0.0000 1.0000
 Output:
 
-	1.0000 -0.0000 -0.0000 7.2303
-	0.0000 1.0000 -0.0000 -37.9607
-	0.0000 0.0000 1.0000 21.6406
+	1.0000 0.0000 -0.0000 30.1300
+	-0.0000 1.0000 -0.0000 42.8112
+	0.0000 0.0000 1.0000 37.8542
 	0.0000 0.0000 0.0000 1.0000
 
 --- Test 2(Rotate Only - FLE = 0:)
 Input:
 	Pose 1 Markers:
-	[2.6380 -1.5309 -9.4886 [0.5793 -1.3824 0.6369 [-6.6103 2.1177 -3.9023 
+	[-0.2940 1.0346 -2.0424] [8.9165 8.8439 -7.8029] [3.4946 -6.5685 0.3202] 
 Pose 2 Markers:
-	[9.1010 -0.8748 -3.9678 [-0.3979 1.4491 -0.6276 [4.2738 -2.5041 6.2349 
+	[4.6711 2.0801 -7.5004] [7.4245 -7.2886 1.6455] [0.0215 8.5185 -3.6702] 
 Expected:
 
-	-0.1469 -0.2182 -0.9648 0.0000
-	-0.0679 -0.9708 0.2299 0.0000
-	-0.9868 0.0993 0.1278 0.0000
+	-0.0011 0.7982 0.6024 0.0000
+	-0.0072 -0.6024 0.7982 0.0000
+	1.0000 -0.0035 0.0064 0.0000
 	0.0000 0.0000 0.0000 1.0000
 Output:
 
-	0.5031 0.8525 0.1416 2.8362
-	0.8305 -0.5223 0.1937 4.2994
-	0.2391 0.0202 -0.9708 4.7423
+	-0.5614 0.7334 -0.3833 4.2803
+	-0.3224 -0.6204 -0.7150 0.8198
+	-0.7622 -0.2778 0.5847 2.0665
 	0.0000 0.0000 0.0000 1.0000
 
 --- Test 3(Translate & Rotate - FLE = 0:)
 Input:
 	Pose 1 Markers:
-	[9.4875 -0.1336 -8.2276 [-7.0301 4.2877 2.3504 [4.6502 6.0748 -5.0723 
+	[-8.9059 -1.5423 -9.2552 [-6.9285 1.6885 0.5752 [-3.9492 -6.1848 -3.1562 
 Pose 2 Markers:
-	[8.8478 -57.1960 -36.0517 [10.7772 -46.2271 -19.3116 [4.8752 -52.2378 -30.4362 
+	[-0.9946 1.4475 16.0763 [-3.4943 8.6240 8.7801 [2.8884 2.0543 7.8377 
 Expected:
 
-	-0.1442 -0.9275 0.3448 12.9295
-	0.0291 0.3444 0.9384 -49.7049
-	-0.9891 0.1454 -0.0227 -26.8350
+	-0.2547 -0.9604 0.1126 -3.7022
+	-0.5912 0.2468 0.7678 3.6694
+	-0.7652 0.1290 -0.6307 3.6230
 	0.0000 0.0000 0.0000 1.0000
 Output:
 
-	0.4791 0.4588 -0.7483 -0.8620
-	0.8261 0.0522 0.5610 -15.4192
-	0.2965 -0.8870 -0.3540 62.2194
+	-0.4819 -0.8073 0.3406 -3.9927
+	-0.5688 0.5839 0.5793 3.7518
+	-0.6665 0.0854 -0.7406 3.7528
 	0.0000 0.0000 0.0000 1.0000

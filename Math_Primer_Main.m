@@ -90,26 +90,44 @@ fprintf(fID, 'Point2:\n\t%.4f\n', isempty(Point2));
 % Sphere-Reconstruction
 %
 
-% fprintf(fID, '\n\n### Sphere-Reconstruction ###\n');
-% fprintf(fID, 'Expected:\n\tIncreasing Standard Deviation and Average Distance with increasing MaxOffset.\n');
-% fprintf(fID, '\tAlso expect to see more skewed reconstructed of sphere on plot.\n');
-% for i = 0:3:12
-%     fprintf(fID, 'Max Offset: %d\n', i);
-%     [Point, Vector, AvgDistance, Std] = Sphere_Reconstruction ([0,0,0], 100, 100, i);
-%     fprintf(fID, '\tStd: %.4f, AvgDistance: %.4f\n\n', Std, AvgDistance);
-% end
+fprintf(fID, '\n\n### Sphere-Reconstruction ###\n');
+fprintf(fID, 'Expected:\n\tIncreasing Standard Deviation and Average Distance with increasing MaxOffset.\n');
+fprintf(fID, '\tAlso expect to see more skewed reconstructed of sphere on plot.\n');
+
+sphere_error_std = [];
+for i = 0:36
+    fprintf(fID, 'Max Offset: %d\n', i);
+    [Point, Vector, AvgDistance, Std] = Sphere_Reconstruction ([0,0,0], 100, 100, i);
+    fprintf(fID, '\tStd: %.4f, AvgDistance: %.4f\n\n', Std, AvgDistance);
+    sphere_error_std = [sphere_error_std; [i, Std]];
+end
+
+figure
+plot(sphere_error_std(:,1), sphere_error_std(:,2));
+title('Sphere Reconstruction - Error Metrics');
+xlabel('Max Offset');
+ylabel('Standard Deviation');
 
 %
 % Line-Reconstruction
 %
-% fprintf(fID, '\n\n### Line-Reconstruction ###\n');
-% fprintf(fID, 'Expected:\n\tIncreasing Standard Deviation and Average Distance with increasing MaxOffset.\n');
-% fprintf(fID, '\tAlso expect to see more skewed reconstructed line on plot.\n');
-% for i = 0:3:12
-%     fprintf(fID, 'Max Offset: %d\n', i);
-%     [Point, Vector, AvgDistance, Std] = Line_Reconstruction ([0,0,0], [100,100,100], 100, i);
-%     fprintf(fID, '\tStd: %.4f, AvgDistance: %.4f\n\n', Std, AvgDistance);
-% end
+line_error = [];
+fprintf(fID, '\n\n### Line-Reconstruction ###\n');
+fprintf(fID, 'Expected:\n\tIncreasing Standard Deviation and Average Distance with increasing MaxOffset.\n');
+fprintf(fID, '\tAlso expect to see more skewed reconstructed line on plot.\n');
+for i = 0:36
+    fprintf(fID, 'Max Offset: %d\n', i);
+    [Point, Vector, AvgDistance, Std] = Line_Reconstruction ([0,0,0], [100,100,100], 100, i);
+    fprintf(fID, '\tStd: %.4f, AvgDistance: %.4f\n\n', Std, AvgDistance);
+    line_error = [line_error; [i, Std]];
+end
+
+figure
+plot(line_error(:,1), line_error(:,2));
+title('Line Reconstruction - Error Metrics');
+xlabel('Max Offset');
+ylabel('Standard Deviation');
+
 
 %
 % Orthonormal-Coordinate-System
@@ -163,37 +181,44 @@ Trans = Rigid_Body_Transform(Marker1', Marker2', Marker3', M1P2(1:3)', M2P2(1:3)
 fprintf(fID, '\nOutput:\n');
 fprintf(fID, '\n\t%.4f %.4f %.4f %.4f', Trans');
 
-Translate
-Trans
-
 fprintf(fID, '\n\n--- Test 2(Rotate Only - FLE = 0:)\n');
 Marker1 = Generate_Random_Transform;
 Marker2 = Generate_Random_Transform;
 Marker3 = Generate_Random_Transform;
 [~,~,Rotate] = Generate_Random_Transform;
 
-M1P2 = Rotate*[Marker1; 1];
-M2P2 = Rotate*[Marker2; 1];
-M3P2 = Rotate*[Marker3; 1];
+m1_mat = [Marker1 Marker2 Marker3];
+centre = mean(m1_mat, 2);
+t1 = eye(4);
+t1(1:3, 4) = -centre;
+
+t2 = eye(4);
+t2(1:3, 4) = centre;
+
+r_ab_or = t2*Rotate*t1
+M1P2 = t2*Rotate*t1*[Marker1; 1];
+M2P2 = t2*Rotate*t1*[Marker2; 1];
+M3P2 = t2*Rotate*t1*[Marker3; 1];
+
+m2_mat = [M1P2(1:3) M2P2(1:3) M3P2(1:3)];
+centre2 = mean(m2_mat, 2);
+
 fprintf(fID, 'Input:\n\t');
 fprintf(fID, 'Pose 1 Markers:\n\t');
-fprintf(fID, '[%.4f %.4f %.4f %.4f] ', Marker1);
-fprintf(fID, '[%.4f %.4f %.4f %.4f] ', Marker2);
-fprintf(fID, '[%.4f %.4f %.4f %.4f] ' , Marker3);
+fprintf(fID, '[%.4f %.4f %.4f] ', Marker1);
+fprintf(fID, '[%.4f %.4f %.4f] ', Marker2);
+fprintf(fID, '[%.4f %.4f %.4f] ' , Marker3);
 
 fprintf(fID, '\nPose 2 Markers:\n\t');
-fprintf(fID, '[%.4f %.4f %.4f %.4f] ', M1P2(1:3));
-fprintf(fID, '[%.4f %.4f %.4f %.4f] ', M2P2(1:3));
-fprintf(fID, '[%.4f %.4f %.4f %.4f] ' , M3P2(1:3));
+fprintf(fID, '[%.4f %.4f %.4f] ', M1P2(1:3));
+fprintf(fID, '[%.4f %.4f %.4f] ', M2P2(1:3));
+fprintf(fID, '[%.4f %.4f %.4f] ', M3P2(1:3));
 
 fprintf(fID, '\nExpected:\n');
 fprintf(fID, '\n\t%.4f %.4f %.4f %.4f', Rotate');
 Rote = Rigid_Body_Transform(Marker1', Marker2', Marker3', M1P2(1:3)', M2P2(1:3)', M3P2(1:3)');
 fprintf(fID, '\nOutput:\n');
 fprintf(fID, '\n\t%.4f %.4f %.4f %.4f', Rote');
-
-Rotate
-Rote
 
 fprintf(fID, '\n\n--- Test 3(Translate & Rotate - FLE = 0:)\n');
 Marker1 = Generate_Random_Transform;
@@ -221,8 +246,5 @@ fprintf(fID, '\n\t%.4f %.4f %.4f %.4f', F');
 f = Rigid_Body_Transform(Marker1', Marker2', Marker3', M1P2(1:3)', M2P2(1:3)', M3P2(1:3)');
 fprintf(fID, '\nOutput:\n');
 fprintf(fID, '\n\t%.4f %.4f %.4f %.4f', f');
-
-F
-f
 
 fclose(fID);

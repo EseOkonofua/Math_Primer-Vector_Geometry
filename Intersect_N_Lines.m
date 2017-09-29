@@ -3,12 +3,12 @@
 
 % Intersect-N-Lines
 % Input:
-% (
-% [line1point1x, line1point1y, line1point1z], [line1point2x, line1point2y, line1point2z],
-% [line2point1x, line2point1y, line2point1z], [line2point2x, line2point2y, line2point2z],
-% [line3point1x, .............)
+    % (
+    % [line1point1x, line1point1y, line1point1z], [line1point2x, line1point2y, line1point2z],
+    % [line2point1x, line2point1y, line2point1z], [line2point2x, line2point2y, line2point2z],
+    % [line3point1x, .............)
 % Ouput:
-% Intersection point: [x,y,z], avg distance, std
+    % Intersection point: [x,y,z], avg distance, std
 
 function [Point, AvgDistance, Std] = Intersect_N_Lines (varargin)
     %make sure there are pairs of lines as arguments
