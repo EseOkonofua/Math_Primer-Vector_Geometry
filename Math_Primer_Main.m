@@ -153,14 +153,15 @@ fprintf(fID, 'z:\n\t[%.4f,%.4f,%.4f]\n', z);
 %
 % Rigid-Body-Transform
 %
+Marker1 = [0;0;1];
+Marker2 = [0;1;0];
+Marker3 = [0;0;0];
+
+Translate = eye(4);
+Translate(1:3, 4) = [2, 4 ,5];
 
 fprintf(fID, '\n### Rigid-Body-Transform ###\n');
 fprintf(fID, '--- Test 1(Translate Only - FLE = 0:)\n');
-Marker1 = Generate_Random_Transform;
-Marker2 = Generate_Random_Transform;
-Marker3 = Generate_Random_Transform;
-[~,Translate] = Generate_Random_Transform;
-
 M1P2 = Translate*[Marker1; 1];
 M2P2 = Translate*[Marker2; 1];
 M3P2 = Translate*[Marker3; 1];
@@ -175,19 +176,22 @@ fprintf(fID, '[%.4f %.4f %.4f %.4f] ', M1P2(1:3));
 fprintf(fID, '[%.4f %.4f %.4f %.4f] ', M2P2(1:3));
 fprintf(fID, '[%.4f %.4f %.4f %.4f] ' , M3P2(1:3));
 
-fprintf(fID, '\nExpected:\n');
-fprintf(fID, '\n\t%.4f %.4f %.4f %.4f', Translate');
-Trans = Rigid_Body_Transform(Marker1', Marker2', Marker3', M1P2(1:3)', M2P2(1:3)', M3P2(1:3)');
+fprintf(fID, '\nExpected: No change in FLE, CtrTRE and AvgFRE\n');
+[~, AvgFLE, AvgFRE, CtrTRE] = Rigid_Body_Transform(Marker1', Marker2', Marker3', M1P2(1:3)', M2P2(1:3)', M3P2(1:3)');
 fprintf(fID, '\nOutput:\n');
-fprintf(fID, '\n\t%.4f %.4f %.4f %.4f', Trans');
+fprintf(fID, '\tAvgFLE: %.4f\n', AvgFLE);
+fprintf(fID, '\tAvgFRE: %.4f\n', AvgFRE);
+fprintf(fID, '\tCtrTRE: %.4f\n', CtrTRE);
 
 fprintf(fID, '\n\n--- Test 2(Rotate Only - FLE = 0:)\n');
-Marker1 = Generate_Random_Transform;
-Marker2 = Generate_Random_Transform;
-Marker3 = Generate_Random_Transform;
-[~,~,Rotate] = Generate_Random_Transform;
-
 m1_mat = [Marker1 Marker2 Marker3];
+rotz45deg = [0.7071, -0.7071, 0;...
+             0.7071,  0.7071, 0;...
+               0  ,  0      , 1.0000];
+           
+rot = eye(4);
+rot(1:3, 1:3) = rotz45deg;
+
 centre = mean(m1_mat, 2);
 t1 = eye(4);
 t1(1:3, 4) = -centre;
@@ -195,38 +199,34 @@ t1(1:3, 4) = -centre;
 t2 = eye(4);
 t2(1:3, 4) = centre;
 
-r_ab_or = t2*Rotate*t1
-M1P2 = t2*Rotate*t1*[Marker1; 1];
-M2P2 = t2*Rotate*t1*[Marker2; 1];
-M3P2 = t2*Rotate*t1*[Marker3; 1];
+M1P2 = rot*[Marker1; 1];
+M2P2 = rot*[Marker2; 1];
+M3P2 = rot*[Marker3; 1];
 
 m2_mat = [M1P2(1:3) M2P2(1:3) M3P2(1:3)];
 centre2 = mean(m2_mat, 2);
 
 fprintf(fID, 'Input:\n\t');
 fprintf(fID, 'Pose 1 Markers:\n\t');
-fprintf(fID, '[%.4f %.4f %.4f] ', Marker1);
-fprintf(fID, '[%.4f %.4f %.4f] ', Marker2);
-fprintf(fID, '[%.4f %.4f %.4f] ' , Marker3);
+fprintf(fID, '[%.4f, %.4f, %.4f] ', Marker1);
+fprintf(fID, '[%.4f, %.4f, %.4f] ', Marker2);
+fprintf(fID, '[%.4f, %.4f, %.4f] ' , Marker3);
 
 fprintf(fID, '\nPose 2 Markers:\n\t');
-fprintf(fID, '[%.4f %.4f %.4f] ', M1P2(1:3));
-fprintf(fID, '[%.4f %.4f %.4f] ', M2P2(1:3));
-fprintf(fID, '[%.4f %.4f %.4f] ', M3P2(1:3));
+fprintf(fID, '[%.4f, %.4f, %.4f] ', M1P2(1:3));
+fprintf(fID, '[%.4f, %.4f, %.4f] ', M2P2(1:3));
+fprintf(fID, '[%.4f, %.4f, %.4f] ', M3P2(1:3));
 
-fprintf(fID, '\nExpected:\n');
-fprintf(fID, '\n\t%.4f %.4f %.4f %.4f', Rotate');
-Rote = Rigid_Body_Transform(Marker1', Marker2', Marker3', M1P2(1:3)', M2P2(1:3)', M3P2(1:3)');
+fprintf(fID, '\n We expect to get 0 in CtrTRE and AvgFLE, FRE \n');
+[~, AvgFLE, AvgFRE, CtrTRE] = Rigid_Body_Transform(Marker1', Marker2', Marker3', M1P2(1:3)', M2P2(1:3)', M3P2(1:3)');
 fprintf(fID, '\nOutput:\n');
-fprintf(fID, '\n\t%.4f %.4f %.4f %.4f', Rote');
+fprintf(fID, '\tAvgFLE: %.4f\n', AvgFLE);
+fprintf(fID, '\tAvgFRE: %.4f\n', AvgFRE);
+fprintf(fID, '\tCtrTRE: %.4f\n', CtrTRE);
+
 
 fprintf(fID, '\n\n--- Test 3(Translate & Rotate - FLE = 0:)\n');
-Marker1 = Generate_Random_Transform;
-Marker2 = Generate_Random_Transform;
-Marker3 = Generate_Random_Transform;
-[~,Translate,Rotate] = Generate_Random_Transform;
-
-F = Rotate*Translate;
+F = rot*Translate;
 M1P2 = F*[Marker1; 1];
 M2P2 = F*[Marker2; 1];
 M3P2 = F*[Marker3; 1];
@@ -241,10 +241,115 @@ fprintf(fID, '[%.4f %.4f %.4f %.4f] ', M1P2(1:3));
 fprintf(fID, '[%.4f %.4f %.4f %.4f] ', M2P2(1:3));
 fprintf(fID, '[%.4f %.4f %.4f %.4f] ' , M3P2(1:3));
 
-fprintf(fID, '\nExpected:\n');
-fprintf(fID, '\n\t%.4f %.4f %.4f %.4f', F');
-f = Rigid_Body_Transform(Marker1', Marker2', Marker3', M1P2(1:3)', M2P2(1:3)', M3P2(1:3)');
+fprintf(fID, '\nExpected: We expect to get 0 in CtrTRE and AvgFLE & FRE\n');
+[~, AvgFLE, AvgFRE, CtrTRE] = Rigid_Body_Transform(Marker1', Marker2', Marker3', M1P2(1:3)', M2P2(1:3)', M3P2(1:3)');
 fprintf(fID, '\nOutput:\n');
-fprintf(fID, '\n\t%.4f %.4f %.4f %.4f', f');
+fprintf(fID, '\tAvgFLE: %.4f\n', AvgFLE);
+fprintf(fID, '\tAvgFRE: %.4f\n', AvgFRE);
+fprintf(fID, '\tCtrTRE: %.4f\n', CtrTRE);
+
+translate_error = [];
+testCase = 1;
+for i = 5:5:20
+    fError = i/100;
+    fprintf(fID, '\n\n--- Test %d(Translate - FLE = %.4f:)\n', 3+testCase, fError);
+    M1P2 = Translate*[Marker1; 1];
+    M2P2 = Translate*[Marker2; 1];
+    M3P2 = Translate*[Marker3; 1];
+    
+    M1Off = GetRandomPointOnSphere(Marker1', fError, 'all');
+    M2Off = GetRandomPointOnSphere(Marker2', fError, 'all');
+    M3Off = GetRandomPointOnSphere(Marker3', fError, 'all');
+    
+    fprintf(fID, 'Input:\n\t');
+    fprintf(fID, 'Pose 1 Markers:\n\t');
+    fprintf(fID, '[%.4f %.4f %.4f ] ', M1Off);
+    fprintf(fID, '[%.4f %.4f %.4f ] ', M2Off);
+    fprintf(fID, '[%.4f %.4f %.4f ] ' , M3Off);
+
+    fprintf(fID, '\nPose 2 Markers:\n\t');
+    fprintf(fID, '[%.4f %.4f %.4f] ', M1P2(1:3));
+    fprintf(fID, '[%.4f %.4f %.4f] ', M2P2(1:3));
+    fprintf(fID, '[%.4f %.4f %.4f] ' , M3P2(1:3));
+
+    fprintf(fID, '\nExpected: We expect the CtrTRE = 0 & We expect to get A skewed AvgFLE & AvgFRE \n');
+    [~, AvgFLE, AvgFRE, CtrTRE] = Rigid_Body_Transform(M1Off, M2Off, M3Off, M1P2(1:3)', M2P2(1:3)', M3P2(1:3)');
+    fprintf(fID, '\nOutput:\n');
+    fprintf(fID, '\tAvgFLE: %.4f\n', AvgFLE);
+    fprintf(fID, '\tAvgFRE: %.4f\n', AvgFRE);
+    fprintf(fID, '\tCtrTRE: %.4f\n', CtrTRE);
+    testCase = testCase + 1;
+    
+    translate_error = [translate_error; [fError, AvgFRE]];
+end
+
+figure
+plot(translate_error(:,1), translate_error(:,2));
+title('Translate Only - AvgFRE vs Introduced FLE');
+xlabel('FLE');
+ylabel('AvgFRE');
+
+for i = 5:5:20
+    fError = i/100;
+    fprintf(fID, '\n\n--- Test %d(Rotate - FLE = %.4f:)\n', 3+testCase, fError);
+    M1P2 = rot*[Marker1; 1];
+    M2P2 = rot*[Marker2; 1];
+    M3P2 = rot*[Marker3; 1];
+    
+    M1Off = GetRandomPointOnSphere(Marker1', fError, 'all');
+    M2Off = GetRandomPointOnSphere(Marker2', fError, 'all');
+    M3Off = GetRandomPointOnSphere(Marker3', fError, 'all');
+    
+    fprintf(fID, 'Input:\n\t');
+    fprintf(fID, 'Pose 1 Markers:\n\t');
+    fprintf(fID, '[%.4f %.4f %.4f ] ', M1Off);
+    fprintf(fID, '[%.4f %.4f %.4f ] ', M2Off);
+    fprintf(fID, '[%.4f %.4f %.4f ] ' , M3Off);
+
+    fprintf(fID, '\nPose 2 Markers:\n\t');
+    fprintf(fID, '[%.4f %.4f %.4f ] ', M1P2(1:3));
+    fprintf(fID, '[%.4f %.4f %.4f ] ', M2P2(1:3));
+    fprintf(fID, '[%.4f %.4f %.4f ] ' , M3P2(1:3));
+
+    fprintf(fID, '\nExpected: We expect the CtrTRE = 0 & We expect to get A skewed AvgFLE & AvgFRE \n');
+    [~, AvgFLE, AvgFRE, CtrTRE] = Rigid_Body_Transform(M1Off, M2Off, M3Off, M1P2(1:3)', M2P2(1:3)', M3P2(1:3)');
+    fprintf(fID, '\nOutput:\n');
+    fprintf(fID, '\tAvgFLE: %.4f\n', AvgFLE);
+    fprintf(fID, '\tAvgFRE: %.4f\n', AvgFRE);
+    fprintf(fID, '\tCtrTRE: %.4f\n', CtrTRE);
+    testCase = testCase + 1;
+end
+
+for i = 5:5:20
+    fError = i/100;
+    fprintf(fID, '\n\n--- Test %d(Translate & Rotate - FLE = %.4f:)\n', 3+testCase, fError);
+    M1P2 = rot*Translate*[Marker1; 1];
+    M2P2 = rot*Translate*[Marker2; 1];
+    M3P2 = rot*Translate*[Marker3; 1];
+    
+    M1Off = GetRandomPointOnSphere(Marker1', fError, 'all');
+    M2Off = GetRandomPointOnSphere(Marker2', fError, 'all');
+    M3Off = GetRandomPointOnSphere(Marker3', fError, 'all');
+    
+    fprintf(fID, 'Input:\n\t');
+    fprintf(fID, 'Pose 1 Markers:\n\t');
+    fprintf(fID, '[%.4f %.4f %.4f ] ', M1Off);
+    fprintf(fID, '[%.4f %.4f %.4f ] ', M2Off);
+    fprintf(fID, '[%.4f %.4f %.4f ] ' , M3Off);
+
+    fprintf(fID, '\nPose 2 Markers:\n\t');
+    fprintf(fID, '[%.4f %.4f %.4f ] ', M1P2(1:3));
+    fprintf(fID, '[%.4f %.4f %.4f ] ', M2P2(1:3));
+    fprintf(fID, '[%.4f %.4f %.4f ] ' , M3P2(1:3));
+
+    fprintf(fID, '\nExpected: We expect the CtrTRE = 0 & We expect to get A skewed AvgFLE & AvgFRE \n');
+    [~, AvgFLE, AvgFRE, CtrTRE] = Rigid_Body_Transform(M1Off, M2Off, M3Off, M1P2(1:3)', M2P2(1:3)', M3P2(1:3)');
+    fprintf(fID, '\nOutput:\n');
+    fprintf(fID, '\tAvgFLE: %.4f\n', AvgFLE);
+    fprintf(fID, '\tAvgFRE: %.4f\n', AvgFRE);
+    fprintf(fID, '\tCtrTRE: %.4f\n', CtrTRE);
+    testCase = testCase + 1;
+end
+
 
 fclose(fID);

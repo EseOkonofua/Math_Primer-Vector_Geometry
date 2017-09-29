@@ -118,112 +118,112 @@ Max Offset: 0
 	Std: 0.0000, AvgDistance: 100.0000
 
 Max Offset: 1
-	Std: 0.1600, AvgDistance: 100.0434
+	Std: 0.0990, AvgDistance: 99.9954
 
 Max Offset: 2
-	Std: 0.3101, AvgDistance: 99.7425
+	Std: 0.3847, AvgDistance: 100.0822
 
 Max Offset: 3
-	Std: 0.5275, AvgDistance: 99.8809
+	Std: 0.3934, AvgDistance: 99.8898
 
 Max Offset: 4
-	Std: 0.4606, AvgDistance: 99.5501
+	Std: 0.3776, AvgDistance: 99.9159
 
 Max Offset: 5
-	Std: 1.1983, AvgDistance: 99.6022
+	Std: 1.2796, AvgDistance: 99.5784
 
 Max Offset: 6
-	Std: 1.1275, AvgDistance: 100.1194
+	Std: 0.6478, AvgDistance: 99.9295
 
 Max Offset: 7
-	Std: 1.7330, AvgDistance: 101.4210
+	Std: 1.6272, AvgDistance: 99.6731
 
 Max Offset: 8
-	Std: 1.9877, AvgDistance: 101.1929
+	Std: 1.5200, AvgDistance: 99.3693
 
 Max Offset: 9
-	Std: 0.8085, AvgDistance: 99.9325
+	Std: 1.2943, AvgDistance: 100.5557
 
 Max Offset: 10
-	Std: 1.6879, AvgDistance: 101.4464
+	Std: 2.0139, AvgDistance: 100.4169
 
 Max Offset: 11
-	Std: 1.3431, AvgDistance: 100.9912
+	Std: 1.0810, AvgDistance: 98.1755
 
 Max Offset: 12
-	Std: 1.6775, AvgDistance: 100.6557
+	Std: 1.5918, AvgDistance: 99.0490
 
 Max Offset: 13
-	Std: 1.9629, AvgDistance: 100.0299
+	Std: 2.6764, AvgDistance: 98.4803
 
 Max Offset: 14
-	Std: 3.2803, AvgDistance: 100.5663
+	Std: 4.2363, AvgDistance: 97.8185
 
 Max Offset: 15
-	Std: 3.0921, AvgDistance: 98.5244
+	Std: 2.7570, AvgDistance: 98.5275
 
 Max Offset: 16
-	Std: 3.8002, AvgDistance: 100.0714
+	Std: 1.2222, AvgDistance: 100.2500
 
 Max Offset: 17
-	Std: 2.8125, AvgDistance: 99.9558
+	Std: 2.6055, AvgDistance: 99.0923
 
 Max Offset: 18
-	Std: 1.4807, AvgDistance: 99.1975
+	Std: 1.4374, AvgDistance: 99.3960
 
 Max Offset: 19
-	Std: 2.4595, AvgDistance: 99.6729
+	Std: 3.9938, AvgDistance: 99.1350
 
 Max Offset: 20
-	Std: 2.7232, AvgDistance: 97.6106
+	Std: 2.0472, AvgDistance: 98.9152
 
 Max Offset: 21
-	Std: 3.2249, AvgDistance: 101.4573
+	Std: 2.3431, AvgDistance: 100.5543
 
 Max Offset: 22
-	Std: 3.0595, AvgDistance: 102.0117
+	Std: 4.5647, AvgDistance: 100.2779
 
 Max Offset: 23
-	Std: 5.6259, AvgDistance: 97.2592
+	Std: 4.5730, AvgDistance: 100.3674
 
 Max Offset: 24
-	Std: 5.3549, AvgDistance: 96.3812
+	Std: 3.2865, AvgDistance: 99.6100
 
 Max Offset: 25
-	Std: 2.8705, AvgDistance: 98.7447
+	Std: 7.3775, AvgDistance: 94.5272
 
 Max Offset: 26
-	Std: 6.5326, AvgDistance: 98.4006
+	Std: 3.8674, AvgDistance: 98.0490
 
 Max Offset: 27
-	Std: 3.8162, AvgDistance: 98.1064
+	Std: 2.4661, AvgDistance: 101.6495
 
 Max Offset: 28
-	Std: 3.8516, AvgDistance: 97.7235
+	Std: 4.3360, AvgDistance: 105.0837
 
 Max Offset: 29
-	Std: 3.4956, AvgDistance: 100.5242
+	Std: 1.4512, AvgDistance: 99.9785
 
 Max Offset: 30
-	Std: 6.9775, AvgDistance: 99.1096
+	Std: 5.0932, AvgDistance: 97.6470
 
 Max Offset: 31
-	Std: 3.5269, AvgDistance: 101.1691
+	Std: 5.3153, AvgDistance: 95.6166
 
 Max Offset: 32
-	Std: 3.6967, AvgDistance: 98.9981
+	Std: 6.4129, AvgDistance: 96.1487
 
 Max Offset: 33
-	Std: 6.0916, AvgDistance: 101.8336
+	Std: 7.5797, AvgDistance: 98.9656
 
 Max Offset: 34
-	Std: 4.7546, AvgDistance: 100.7135
+	Std: 8.0195, AvgDistance: 99.0803
 
 Max Offset: 35
-	Std: 5.4660, AvgDistance: 98.8896
+	Std: 5.4226, AvgDistance: 96.5013
 
 Max Offset: 36
-	Std: 7.6410, AvgDistance: 97.8669
+	Std: 3.1903, AvgDistance: 99.2195
 
 
 
@@ -235,112 +235,112 @@ Max Offset: 0
 	Std: 0.0000, AvgDistance: 0.0000
 
 Max Offset: 1
-	Std: 0.2229, AvgDistance: 0.4021
+	Std: 0.2437, AvgDistance: 0.3877
 
 Max Offset: 2
-	Std: 0.4548, AvgDistance: 0.8366
+	Std: 0.4734, AvgDistance: 0.7189
 
 Max Offset: 3
-	Std: 0.8195, AvgDistance: 1.2179
+	Std: 0.6618, AvgDistance: 1.2021
 
 Max Offset: 4
-	Std: 1.0207, AvgDistance: 1.5642
+	Std: 0.8889, AvgDistance: 1.4814
 
 Max Offset: 5
-	Std: 0.6664, AvgDistance: 1.3644
+	Std: 0.8506, AvgDistance: 1.4352
 
 Max Offset: 6
-	Std: 1.1916, AvgDistance: 2.0249
+	Std: 1.1764, AvgDistance: 2.0770
 
 Max Offset: 7
-	Std: 1.6482, AvgDistance: 2.6381
+	Std: 1.7378, AvgDistance: 2.8131
 
 Max Offset: 8
-	Std: 1.5026, AvgDistance: 2.6440
+	Std: 1.4630, AvgDistance: 2.6390
 
 Max Offset: 9
-	Std: 2.4760, AvgDistance: 3.5475
+	Std: 1.6992, AvgDistance: 2.9361
 
 Max Offset: 10
-	Std: 1.3185, AvgDistance: 2.7270
+	Std: 2.3556, AvgDistance: 4.5142
 
 Max Offset: 11
-	Std: 1.9626, AvgDistance: 3.6580
+	Std: 2.6800, AvgDistance: 3.8298
 
 Max Offset: 12
-	Std: 2.1970, AvgDistance: 3.9991
+	Std: 2.1472, AvgDistance: 3.4091
 
 Max Offset: 13
-	Std: 1.8658, AvgDistance: 3.1163
+	Std: 2.4871, AvgDistance: 3.7941
 
 Max Offset: 14
-	Std: 2.7140, AvgDistance: 5.1307
+	Std: 2.7670, AvgDistance: 4.2545
 
 Max Offset: 15
-	Std: 3.7469, AvgDistance: 5.8056
+	Std: 3.2699, AvgDistance: 6.1726
 
 Max Offset: 16
-	Std: 2.1502, AvgDistance: 3.3764
+	Std: 3.7988, AvgDistance: 6.1203
 
 Max Offset: 17
-	Std: 3.7691, AvgDistance: 6.1994
+	Std: 3.4838, AvgDistance: 5.5269
 
 Max Offset: 18
-	Std: 3.8529, AvgDistance: 7.3097
+	Std: 3.8374, AvgDistance: 5.7348
 
 Max Offset: 19
-	Std: 3.7703, AvgDistance: 6.3460
+	Std: 4.1848, AvgDistance: 6.5391
 
 Max Offset: 20
-	Std: 5.3592, AvgDistance: 7.9869
+	Std: 4.2946, AvgDistance: 7.2397
 
 Max Offset: 21
-	Std: 3.3078, AvgDistance: 5.9451
+	Std: 4.6443, AvgDistance: 7.4412
 
 Max Offset: 22
-	Std: 3.0416, AvgDistance: 4.8984
+	Std: 5.7032, AvgDistance: 9.6153
 
 Max Offset: 23
-	Std: 5.9748, AvgDistance: 9.6219
+	Std: 5.2648, AvgDistance: 8.7228
 
 Max Offset: 24
-	Std: 5.6210, AvgDistance: 9.4570
+	Std: 4.9940, AvgDistance: 7.3738
 
 Max Offset: 25
-	Std: 4.6185, AvgDistance: 8.1280
+	Std: 6.0798, AvgDistance: 8.3254
 
 Max Offset: 26
-	Std: 5.4061, AvgDistance: 9.9750
+	Std: 3.5029, AvgDistance: 5.7586
 
 Max Offset: 27
-	Std: 5.4482, AvgDistance: 8.6930
+	Std: 5.7536, AvgDistance: 10.3034
 
 Max Offset: 28
-	Std: 4.4639, AvgDistance: 7.8505
+	Std: 6.9011, AvgDistance: 10.1776
 
 Max Offset: 29
-	Std: 7.6854, AvgDistance: 12.8699
+	Std: 7.6327, AvgDistance: 10.7454
 
 Max Offset: 30
-	Std: 7.8286, AvgDistance: 12.3881
+	Std: 5.8407, AvgDistance: 9.7713
 
 Max Offset: 31
-	Std: 2.4752, AvgDistance: 4.8895
+	Std: 4.9133, AvgDistance: 7.8921
 
 Max Offset: 32
-	Std: 7.7275, AvgDistance: 12.5803
+	Std: 6.9776, AvgDistance: 11.9172
 
 Max Offset: 33
-	Std: 8.4843, AvgDistance: 13.5634
+	Std: 6.5520, AvgDistance: 11.2001
 
 Max Offset: 34
-	Std: 5.3272, AvgDistance: 8.5084
+	Std: 8.3478, AvgDistance: 11.9085
 
 Max Offset: 35
-	Std: 5.6568, AvgDistance: 10.4084
+	Std: 8.9140, AvgDistance: 15.7008
 
 Max Offset: 36
-	Std: 8.2600, AvgDistance: 13.3274
+	Std: 6.9103, AvgDistance: 11.9485
 
 
 ### Orthonormal-Coordinate-System ###
@@ -373,56 +373,208 @@ z:
 --- Test 1(Translate Only - FLE = 0:)
 Input:
 	Pose 1 Markers:
-	[-7.5961 -1.8153 2.9209 [1.2619 -1.0824 5.7400 [-6.7904 5.8472 -5.8750 
+	[0.0000 0.0000 1.0000 [0.0000 1.0000 0.0000 [0.0000 0.0000 0.0000 
 Pose 2 Markers:
-	[22.5339 40.9959 40.7751 [31.3919 41.7288 43.5942 [23.3396 48.6584 31.9791 
-Expected:
+	[2.0000 4.0000 6.0000 [2.0000 5.0000 5.0000 [2.0000 4.0000 5.0000 
+Expected: No change in FLE, CtrTRE and AvgFRE
 
-	1.0000 0.0000 0.0000 30.1300
-	0.0000 1.0000 0.0000 42.8112
-	0.0000 0.0000 1.0000 37.8542
-	0.0000 0.0000 0.0000 1.0000
 Output:
+	AvgFLE: 0.0000
+	AvgFRE: 0.0000
+	CtrTRE: 0.0000
 
-	1.0000 0.0000 -0.0000 30.1300
-	-0.0000 1.0000 -0.0000 42.8112
-	0.0000 0.0000 1.0000 37.8542
-	0.0000 0.0000 0.0000 1.0000
 
 --- Test 2(Rotate Only - FLE = 0:)
 Input:
 	Pose 1 Markers:
-	[-0.2940 1.0346 -2.0424] [8.9165 8.8439 -7.8029] [3.4946 -6.5685 0.3202] 
+	[0.0000, 0.0000, 1.0000] [0.0000, 1.0000, 0.0000] [0.0000, 0.0000, 0.0000] 
 Pose 2 Markers:
-	[4.6711 2.0801 -7.5004] [7.4245 -7.2886 1.6455] [0.0215 8.5185 -3.6702] 
-Expected:
+	[0.0000, 0.0000, 1.0000] [-0.7071, 0.7071, 0.0000] [0.0000, 0.0000, 0.0000] 
+ We expect to get 0 in CtrTRE and AvgFLE, FRE 
 
-	-0.0011 0.7982 0.6024 0.0000
-	-0.0072 -0.6024 0.7982 0.0000
-	1.0000 -0.0035 0.0064 0.0000
-	0.0000 0.0000 0.0000 1.0000
 Output:
+	AvgFLE: 0.0000
+	AvgFRE: 0.5487
+	CtrTRE: 0.0000
 
-	-0.5614 0.7334 -0.3833 4.2803
-	-0.3224 -0.6204 -0.7150 0.8198
-	-0.7622 -0.2778 0.5847 2.0665
-	0.0000 0.0000 0.0000 1.0000
 
 --- Test 3(Translate & Rotate - FLE = 0:)
 Input:
 	Pose 1 Markers:
-	[-8.9059 -1.5423 -9.2552 [-6.9285 1.6885 0.5752 [-3.9492 -6.1848 -3.1562 
+	[0.0000 0.0000 1.0000 [0.0000 1.0000 0.0000 [0.0000 0.0000 0.0000 
 Pose 2 Markers:
-	[-0.9946 1.4475 16.0763 [-3.4943 8.6240 8.7801 [2.8884 2.0543 7.8377 
-Expected:
+	[-1.4142 4.2426 6.0000 [-2.1213 4.9497 5.0000 [-1.4142 4.2426 5.0000 
+Expected: We expect to get 0 in CtrTRE and AvgFLE & FRE
 
-	-0.2547 -0.9604 0.1126 -3.7022
-	-0.5912 0.2468 0.7678 3.6694
-	-0.7652 0.1290 -0.6307 3.6230
-	0.0000 0.0000 0.0000 1.0000
 Output:
+	AvgFLE: 0.0000
+	AvgFRE: 0.5487
+	CtrTRE: 0.0000
 
-	-0.4819 -0.8073 0.3406 -3.9927
-	-0.5688 0.5839 0.5793 3.7518
-	-0.6665 0.0854 -0.7406 3.7528
-	0.0000 0.0000 0.0000 1.0000
+
+--- Test 4(Translate - FLE = 0.0500:)
+Input:
+	Pose 1 Markers:
+	[-0.0023 0.0174 0.9532 ] [-0.0170 0.9762 0.0406 ] [0.0258 -0.0336 -0.0265 ] 
+Pose 2 Markers:
+	[2.0000 4.0000 6.0000] [2.0000 5.0000 5.0000] [2.0000 4.0000 5.0000] 
+Expected: We expect the CtrTRE = 0 & We expect to get A skewed AvgFLE & AvgFRE 
+
+Output:
+	AvgFLE: 0.0407
+	AvgFRE: 0.0469
+	CtrTRE: 0.0000
+
+
+--- Test 5(Translate - FLE = 0.1000:)
+Input:
+	Pose 1 Markers:
+	[0.0642 0.0504 1.0578 ] [-0.0863 1.0142 0.0484 ] [0.0012 0.0538 0.0843 ] 
+Pose 2 Markers:
+	[2.0000 4.0000 6.0000] [2.0000 5.0000 5.0000] [2.0000 4.0000 5.0000] 
+Expected: We expect the CtrTRE = 0 & We expect to get A skewed AvgFLE & AvgFRE 
+
+Output:
+	AvgFLE: 0.0233
+	AvgFRE: 0.0518
+	CtrTRE: 0.0000
+
+
+--- Test 6(Translate - FLE = 0.1500:)
+Input:
+	Pose 1 Markers:
+	[-0.0043 -0.0165 0.8510 ] [0.0731 1.0808 0.1031 ] [-0.0801 -0.1110 0.0614 ] 
+Pose 2 Markers:
+	[2.0000 4.0000 6.0000] [2.0000 5.0000 5.0000] [2.0000 4.0000 5.0000] 
+Expected: We expect the CtrTRE = 0 & We expect to get A skewed AvgFLE & AvgFRE 
+
+Output:
+	AvgFLE: 0.1625
+	AvgFRE: 0.2326
+	CtrTRE: 0.0000
+
+
+--- Test 7(Translate - FLE = 0.2000:)
+Input:
+	Pose 1 Markers:
+	[0.0925 -0.1622 0.9282 ] [0.0293 1.0034 -0.1978 ] [0.1320 -0.0914 -0.1193 ] 
+Pose 2 Markers:
+	[2.0000 4.0000 6.0000] [2.0000 5.0000 5.0000] [2.0000 4.0000 5.0000] 
+Expected: We expect the CtrTRE = 0 & We expect to get A skewed AvgFLE & AvgFRE 
+
+Output:
+	AvgFLE: 0.1203
+	AvgFRE: 0.1102
+	CtrTRE: 0.0000
+
+
+--- Test 8(Rotate - FLE = 0.0500:)
+Input:
+	Pose 1 Markers:
+	[0.0030 -0.0244 0.9565 ] [0.0147 1.0092 -0.0469 ] [0.0114 0.0082 -0.0480 ] 
+Pose 2 Markers:
+	[0.0000 0.0000 1.0000 ] [-0.7071 0.7071 0.0000 ] [0.0000 0.0000 0.0000 ] 
+Expected: We expect the CtrTRE = 0 & We expect to get A skewed AvgFLE & AvgFRE 
+
+Output:
+	AvgFLE: 0.0108
+	AvgFRE: 0.5589
+	CtrTRE: 0.0000
+
+
+--- Test 9(Rotate - FLE = 0.1000:)
+Input:
+	Pose 1 Markers:
+	[0.0612 0.0692 0.9617 ] [-0.0494 1.0829 0.0263 ] [0.0459 0.0489 0.0741 ] 
+Pose 2 Markers:
+	[0.0000 0.0000 1.0000 ] [-0.7071 0.7071 0.0000 ] [0.0000 0.0000 0.0000 ] 
+Expected: We expect the CtrTRE = 0 & We expect to get A skewed AvgFLE & AvgFRE 
+
+Output:
+	AvgFLE: 0.0606
+	AvgFRE: 0.5073
+	CtrTRE: 0.0000
+
+
+--- Test 10(Rotate - FLE = 0.1500:)
+Input:
+	Pose 1 Markers:
+	[-0.0080 -0.1456 1.0352 ] [0.0025 1.0696 -0.1328 ] [-0.0982 0.0445 0.1042 ] 
+Pose 2 Markers:
+	[0.0000 0.0000 1.0000 ] [-0.7071 0.7071 0.0000 ] [0.0000 0.0000 0.0000 ] 
+Expected: We expect the CtrTRE = 0 & We expect to get A skewed AvgFLE & AvgFRE 
+
+Output:
+	AvgFLE: 0.1246
+	AvgFRE: 0.6862
+	CtrTRE: 0.0000
+
+
+--- Test 11(Rotate - FLE = 0.2000:)
+Input:
+	Pose 1 Markers:
+	[0.1131 -0.1647 1.0085 ] [0.1117 1.0525 -0.1574 ] [0.1991 -0.0001 -0.0193 ] 
+Pose 2 Markers:
+	[0.0000 0.0000 1.0000 ] [-0.7071 0.7071 0.0000 ] [0.0000 0.0000 0.0000 ] 
+Expected: We expect the CtrTRE = 0 & We expect to get A skewed AvgFLE & AvgFRE 
+
+Output:
+	AvgFLE: 0.1270
+	AvgFRE: 0.4988
+	CtrTRE: 0.0000
+
+
+--- Test 12(Translate & Rotate - FLE = 0.0500:)
+Input:
+	Pose 1 Markers:
+	[0.0250 0.0374 1.0219 ] [-0.0130 1.0232 0.0424 ] [-0.0064 0.0368 0.0333 ] 
+Pose 2 Markers:
+	[-1.4142 4.2426 6.0000 ] [-2.1213 4.9497 5.0000 ] [-1.4142 4.2426 5.0000 ] 
+Expected: We expect the CtrTRE = 0 & We expect to get A skewed AvgFLE & AvgFRE 
+
+Output:
+	AvgFLE: 0.0162
+	AvgFRE: 0.5558
+	CtrTRE: 0.0000
+
+
+--- Test 13(Translate & Rotate - FLE = 0.1000:)
+Input:
+	Pose 1 Markers:
+	[0.0938 -0.0063 0.9660 ] [0.0325 1.0924 -0.0202 ] [-0.0147 -0.0968 -0.0203 ] 
+Pose 2 Markers:
+	[-1.4142 4.2426 6.0000 ] [-2.1213 4.9497 5.0000 ] [-1.4142 4.2426 5.0000 ] 
+Expected: We expect the CtrTRE = 0 & We expect to get A skewed AvgFLE & AvgFRE 
+
+Output:
+	AvgFLE: 0.0857
+	AvgFRE: 0.6507
+	CtrTRE: 0.0000
+
+
+--- Test 14(Translate & Rotate - FLE = 0.1500:)
+Input:
+	Pose 1 Markers:
+	[-0.1107 -0.0315 0.9038 ] [-0.0741 1.0405 0.1239 ] [0.1132 -0.0723 0.0667 ] 
+Pose 2 Markers:
+	[-1.4142 4.2426 6.0000 ] [-2.1213 4.9497 5.0000 ] [-1.4142 4.2426 5.0000 ] 
+Expected: We expect the CtrTRE = 0 & We expect to get A skewed AvgFLE & AvgFRE 
+
+Output:
+	AvgFLE: 0.1168
+	AvgFRE: 0.4242
+	CtrTRE: 0.0000
+
+
+--- Test 15(Translate & Rotate - FLE = 0.2000:)
+Input:
+	Pose 1 Markers:
+	[0.0226 0.0828 1.1806 ] [0.0812 0.9939 -0.1827 ] [0.1104 -0.0328 0.1635 ] 
+Pose 2 Markers:
+	[-1.4142 4.2426 6.0000 ] [-2.1213 4.9497 5.0000 ] [-1.4142 4.2426 5.0000 ] 
+Expected: We expect the CtrTRE = 0 & We expect to get A skewed AvgFLE & AvgFRE 
+
+Output:
+	AvgFLE: 0.1126
+	AvgFRE: 0.3792
+	CtrTRE: 0.0000

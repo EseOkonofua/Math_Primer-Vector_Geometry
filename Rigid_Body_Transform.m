@@ -20,6 +20,9 @@ function [Transform, AvgFLE, AvgFRE, CtrTRE] = Rigid_Body_Transform (pose1M1, po
     [vX, vY, vZ, vO] = Orthonormal_Coordinate_System(pose2M1, pose2M2, pose2M3);
     
     %camera situated at origin
+    cX = [1,0,0];
+    cY = [0,1,0];
+    cZ = [0,0,1];
     camO = [0,0,0];
     
     dE = [(camO - eO) 1]';
@@ -33,27 +36,49 @@ function [Transform, AvgFLE, AvgFRE, CtrTRE] = Rigid_Body_Transform (pose1M1, po
     camO_vO(:, 4) = dO;
     
     %generate a rotation matrix
-    rotation = eye(4);
     rotation_mat = ...
-        [dot(vX, eX), dot(vX, eY), dot(vX, eZ);...
-        dot(vY, eX), dot(vY, eY), dot(vY, eZ);... 
-        dot(vZ, eX), dot(vZ, eY), dot(vZ, eZ)];
-    rotation(1:3, 1:3) = rotation_mat;
+        [dot(vX,eX), dot(vX,eY), dot(vX, eZ), 0;...
+        dot(vY,eX), dot(vY,eY), dot(vY, eZ), 0;... 
+        dot(vZ,eX), dot(vZ,eY), dot(vZ, eZ), 0;...
+        0,0,0,1];
     
     %Sequential multiplication will give us our transform matrix
-    Transform = camO_vO*rotation*eO_hO;
+    Transform = camO_vO*(rotation_mat*eO_hO);
     
     product1 = Transform*[pose1M1, 1]';
     product2 = Transform*[pose1M2, 1]';
     product3 = Transform*[pose1M3, 1]';
     
-%     product1 = product1'
-%     pose2M1
-%     product2 = product2'
-%     pose2M2
-%     product3 = product3' 
-%     pose2M3
+    product1 = product1(1:3);
+    product2 = product2(1:3);
+    product3 = product3(1:3);
     
+    %AvgFLE 
+    %Measure congruency by taking difference of length of triangle sides.
+    %in both poses.
+    AB = norm(pose1M2 - pose1M1);
+    AC = norm(pose1M3 - pose1M1);
+    BC = norm(pose1M3 - pose1M2);
     
+    AB2 = norm(pose2M2 - pose2M1);
+    AC2 = norm(pose2M3 - pose2M1);
+    BC2 = norm(pose2M3 - pose2M2);
+    
+    AvgFLE = round((abs(AB2 - AB) + abs(AC2 - AC) + abs(BC2 - BC))/3, 4);
+    %AvgFRE
+    %Change in fiducial position from expected to the computed with the
+    %shaky F matrix.
+    
+    dA = norm(product1 - pose2M1');
+    dB = norm(product2 - pose2M2');
+    dC = norm(product3 - pose2M3');
+    
+    AvgFRE = round((dA + dB + dC)/3, 4);
+    
+    %CtrTRE
+    %Change in expected centre vs the actual of centre of produced fiducials
+    mean_product = mean([product1' ; product2' ; product3']);
+    
+    CtrTRE = round(norm(mean_product - vO), 4);2
 end
     
